@@ -18,11 +18,21 @@
 <main>
 <h2>Practice</h2>
 <pre>
-<?php $sum = (100+100+400); ?>
-合計金額は：<?php print(($sum)*1.10); ?> 円です
+
+<?php 
+
+$i = 1;
+
+while ($i <= 365) {
+  print($i . "\n");
+  $i = $i + 1;
+}
+
+?>
 
 </pre>
 </main>
 </body>    
 </html>
+
 
