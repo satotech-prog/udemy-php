@@ -28,6 +28,8 @@ while ($i <= 365) {
   $i = $i + 1;
 }
 
+print (date("n/j(D)", strtotime("+2day")));
+
 ?>
 
 </pre>

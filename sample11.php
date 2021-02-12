@@ -18,9 +18,18 @@
 <main>
 <h2>Practice</h2>
 <pre>
-<!-- ここにプログラムを記述します -->
+
+<?php
+
+$success = file_put_contents("../../news_data/news.txt","2021-02-12 ホームページをリニューアルしました");
+
+if ($success) {
+  print("リニューアル完了しました");
+} else {
+  print("リニューアル失敗しました");
+}
+?>
 </pre>
 </main>
 </body>    
 </html>
-

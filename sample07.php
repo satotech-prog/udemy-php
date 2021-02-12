@@ -18,9 +18,17 @@
 <main>
 <h2>Practice</h2>
 <pre>
-<!-- ここにプログラムを記述します -->
+
+<?php
+
+if (date("G") > 4 ) {
+  print('現在使われておりません');
+} else {
+  print("現在使用可能です");
+  }
+?>
+
 </pre>
 </main>
 </body>    
 </html>
-
