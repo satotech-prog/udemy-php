@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <title>PHP</title>
 </head>
@@ -17,13 +17,22 @@
 
 <main>
 <h2>Practice</h2>
-<form action="submit.php" method="get">
-  <label for="my_name">お名前：</label>
-  <input  type="text" id="my_name" name="my_name" maxlength="255" value="">
-  <input type="submit" value="送信する">
-</form>
+<pre>
 
+<?php
+$age = 20;
 
+$age = mb_convert_kana($age, "n", "UTF-8");
+
+if (is_numeric($age)) {
+  print($age . "歳");
+} else {
+  print("※年齢が数字ではありません");
+}
+?>
+
+</pre>
 </main>
 </body>    
 </html>
+

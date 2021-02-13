@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <title>PHP</title>
 </head>
@@ -17,13 +17,24 @@
 
 <main>
 <h2>Practice</h2>
-<form action="submit.php" method="get">
-  <label for="my_name">お名前：</label>
-  <input  type="text" id="my_name" name="my_name" maxlength="255" value="">
-  <input type="submit" value="送信する">
-</form>
+<pre>
 
+<table>
+<?php 
+  for ($i=1; $i<=100; $i++) {
+    if ($i % 2) {
+      print('<tr style="background-color: #ccc">');
+    } else {
+      print('<tr>');
+    }
+    print("<td>". $i. "行目</td>");
+    print("</tr>");
+  }
+?>
+</table>
 
+</pre>
 </main>
 </body>    
 </html>
+
