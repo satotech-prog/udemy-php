@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 if(!empty($_POST)) {
 
@@ -18,14 +19,29 @@ if ($_POST['password'] === '') {
 	$error['password'] = 'blank';
 }
 
+$fileName = $_FILES['image']['name'];
+if (!empty($fileName)) {
+	$ext = substr($fileName, -3);
+	if ($ext != 'jpg' && $ext != 'png') {
+		$error['image'] = 'type';
+	}
+}
+
 if (empty($error)) {
+	$image = date('YmdHis') . $_FILES['image']['name'];
+	move_upload_file($_FILES['image']['tmp_name'],
+	'../member_picture/' . $image);
+	$_SESSION['join'] = $_POST;
+	$_SESSION['join']['image'] = $image;
 	 header('location: check.php');
 	 exit();
 }
-
 }
 
-
+if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION
+['join'])) {
+	$_POST = $_SESSION['join'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +96,11 @@ if (empty($error)) {
         </dd>
 		<dt>写真など</dt>
 		<dd>
-        	<input type="file" name="image" size="35" value="test"  />
+					<input type="file" name="image" size="35" value="test"  />
+					<?php if ($error['image'] === 'type'): ?>
+					<p class='error'>* 写真はjpgもしくはpngでお願いいたします。 </p>
+					<?php endif; ?>
+					
         </dd>
 	</dl>
 	<div><input type="submit" value="入力内容を確認する" /></div>
